@@ -29,6 +29,8 @@ const promptGen = (params: FormInputs) => {
 
 const postToOpenApi = async (data: any) => {
   try {
+    console.log(process.env)
+    console.log(data)
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
@@ -53,7 +55,9 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const formInputs = req.body.data as FormInputs
+  console.log(formInputs)
   const collected = { ...openAiMode, ...promptGen(formInputs) }
+  console.log(collected)
   const apiData = postToOpenApi(collected)
   const returnedData = openApiCleaner(apiData)
   res.status(200).json({
