@@ -29,7 +29,7 @@ const promptGen = (params: FormInputs) => {
 
 const postToOpenApi = async (data: any) => {
   try {
-    console.log(process.env)
+    console.log(process.env.OPEN_API_SECRET_KEY)
     console.log(data)
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
@@ -39,9 +39,6 @@ const postToOpenApi = async (data: any) => {
       },
       body: JSON.stringify(data),
     })
-    console.log(response.status)
-    console.log(response.body)
-    console.log(response)
     const json = await response.json()
     return json
   } catch (error) {
