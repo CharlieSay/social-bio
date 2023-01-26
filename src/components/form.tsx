@@ -57,7 +57,9 @@ export const Form = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <section className="my-4">
-        <label className="block text-sm font-medium mb-4">Prompt?</label>
+        <label className="block text-sm font-medium dark:text-white mb-4">
+          Prompt?
+        </label>
         {errors.prompt && (
           <span className="text-xs text-red-500">
             This is of course required
@@ -65,22 +67,24 @@ export const Form = () => {
         )}
         <textarea
           placeholder="e.g - Influencer based in London UK, posting daily about living a postive life. "
-          className={`resize-y mx-auto border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
+          className={`resize-y mx-auto dark:text-white dark:bg-zinc-800 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ${
             errors.prompt && 'border-red-500 bg-red-100'
           }`}
           {...register('prompt', { required: true })}
         />
       </section>
       <section className="my-4">
-        <label className="block text-sm font-medium mb-4">Mood?</label>
+        <label className="block text-sm font-medium mb-4 dark:text-white">
+          Mood?
+        </label>
         <select
-          className="border border-gray-300 text-gray-900 w-full font-medium rounded-lg text-sm px-4 py-2.5 inline-flex items-center"
+          className="border dark:text-white dark:bg-zinc-800 border-gray-300 text-gray-900 w-full font-medium rounded-lg text-sm pl-4 pr-8 py-4 inline-flex items-center"
           defaultValue={moodList[4].text}
           {...register('mood', { required: true })}
         >
           {moodList.map((mood) => (
             <option
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              className="block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               key={mood.text}
               value={mood.text}
             >
@@ -90,9 +94,11 @@ export const Form = () => {
         </select>
       </section>
       <section className="my-4">
-        <label className="block text-sm font-medium mb-4">Social network</label>
+        <label className="block text-sm font-medium mb-4 dark:text-white">
+          Social network
+        </label>
         <select
-          className="border border-gray-300 text-gray-900 w-full font-medium rounded-lg text-sm px-4 py-2.5 inline-flex items-center"
+          className="border border-gray-300 dark:text-white dark:bg-zinc-800 text-gray-900 w-full font-medium rounded-lg text-sm px-4 py-4 inline-flex items-center"
           defaultValue={socialNetwork[0]}
           {...register('socialNetwork', { required: true })}
         >
@@ -109,7 +115,7 @@ export const Form = () => {
       </section>
       <section className="flex justify-around">
         <label className="inline-flex flex-col items-center cursor-pointer">
-          <span className="text-sm mb-2 font-medium text-gray-900 dark:text-gray-300">
+          <span className="text-sm mb-2 font-medium text-gray-900 dark:text-white">
             With emojis?
           </span>
           <section className="relative">
@@ -123,7 +129,7 @@ export const Form = () => {
           </section>
         </label>
         <label className="inline-flex flex-col items-center cursor-pointer">
-          <span className="text-sm mb-2 font-medium text-gray-900 dark:text-gray-300">
+          <span className="text-sm mb-2 font-medium text-gray-900 dark:text-white">
             With hashtags?
           </span>
           <section className="relative">
