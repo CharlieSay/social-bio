@@ -1,6 +1,8 @@
 import { FormInputs } from '@/components/form'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+const openAiKey = process.env.OPEN_API_SECRET_KEY
+
 type Data = {
   generatedBio: string[]
 }
@@ -32,18 +34,16 @@ const postToOpenApi = async (data: any) => {
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${process.env.OPEN_API_SECRET_KEY}`,
+        Authorization: `Bearer ${openAiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    }).catch((error) => {
-      console.log(error)
-    }).then
-    // const json = await response.json()
-    return {}
+    })
+    const json = await response.json()
+    return json
   } catch (error) {
-    console.log('Error:', error)
-    throw error
+    console.error('Error:', error)
+    return {}
   }
 }
 
@@ -71,15 +71,17 @@ export interface Choice {
 }
 
 const openApiCleaner = (data: any): string[] => {
-  const filteredData = data as OpenApiResponse
-  if (filteredData.choices[0]) {
-    const data = filteredData.choices[0].text
-      .trim()
-      .replace('\n', ' ')
-      .split(/\r?\n/)
-      .filter((v) => v != '')
-      .map((string) => string.slice(1, -1))
-    return data
-  }
-  return []
+  console.log(data)
+  return ['foo', 'bar']
+  // const filteredData = data as OpenApiResponse
+  // if (filteredData.choices[0]) {
+  //   const data = filteredData.choices[0].text
+  //     .trim()
+  //     .replace('\n', ' ')
+  //     .split(/\r?\n/)
+  //     .filter((v) => v != '')
+  //     .map((string) => string.slice(1, -1))
+  //   return data
+  // }
+  // return []
 }
