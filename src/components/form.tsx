@@ -37,6 +37,7 @@ export const Form = () => {
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
+      setReturnedBio(undefined)
       setIsLoading(true)
       const response = await fetch('/api/generator', {
         method: 'POST',
