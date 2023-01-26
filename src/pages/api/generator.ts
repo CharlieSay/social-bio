@@ -69,17 +69,15 @@ export interface Choice {
 }
 
 const openApiCleaner = (data: any): string[] => {
-  console.log(data)
-  return ['foo', 'bar']
-  // const filteredData = data as OpenApiResponse
-  // if (filteredData.choices[0]) {
-  //   const data = filteredData.choices[0].text
-  //     .trim()
-  //     .replace('\n', ' ')
-  //     .split(/\r?\n/)
-  //     .filter((v) => v != '')
-  //     .map((string) => string.slice(1, -1))
-  //   return data
-  // }
-  // return []
+  const filteredData = data as OpenApiResponse
+  if (filteredData.choices[0]) {
+    const data = filteredData.choices[0].text
+      .trim()
+      .replace('\n', ' ')
+      .split(/\r?\n/)
+      .filter((v) => v != '')
+      .map((string) => string.slice(1, -1))
+    return data
+  }
+  return []
 }
