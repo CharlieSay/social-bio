@@ -76,7 +76,7 @@ const openApiCleaner = (data: any): string[] => {
       .replace('\n', ' ')
       .split(/\r?\n/)
       .filter((v) => v != '')
-      .map((string) => string.slice(1, -1))
+      .map((string) => string.slice(2, -1))
     return data
   }
   return []
