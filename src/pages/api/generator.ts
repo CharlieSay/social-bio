@@ -29,8 +29,7 @@ const promptGen = (params: FormInputs) => {
 
 const postToOpenApi = async (data: any) => {
   try {
-    console.log(process.env.OPEN_API_SECRET_KEY)
-    console.log(data)
+    console.log(JSON.stringify(data))
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
