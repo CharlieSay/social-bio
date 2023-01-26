@@ -37,8 +37,10 @@ const postToOpenApi = async (data: any) => {
       },
       body: JSON.stringify(data),
     })
+    console.log(response.status)
+    console.log(response.body)
+    console.log(response)
     const json = await response.json()
-    console.log(json)
     return json
   } catch (error) {
     console.error('Error:', error)
