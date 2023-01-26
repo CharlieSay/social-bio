@@ -52,10 +52,8 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const formInputs = req.body.data as FormInputs
-  console.log(formInputs)
   const collected = { ...openAiMode, ...promptGen(formInputs) }
-  console.log(collected)
-  const apiData = postToOpenApi(collected)
+  const apiData = await postToOpenApi(collected)
   const returnedData = openApiCleaner(apiData)
   res.status(200).json({
     generatedBio: returnedData,
