@@ -17,14 +17,14 @@ type Data = {
 
 const moodList = [
   { text: 'Professional', emoji: '💼' },
-  { text: 'Serious', emoji: '🦾' },
   { text: 'Happy', emoji: '😊' },
-  { text: 'Energetic', emoji: '🔥' },
+  { text: 'Serious', emoji: '🦾' },
   { text: 'Funny', emoji: '🤣' },
+  { text: 'Energetic', emoji: '🔥' },
   { text: 'Blase', emoji: ' 😴' },
 ]
 
-const socialNetwork = ['Twitter', 'Instagram', 'BeReal', 'TikTok']
+const socialNetwork = ['Twitter', 'Instagram', 'LinkedIn', 'TikTok']
 
 export const Form = () => {
   const {
@@ -78,7 +78,7 @@ export const Form = () => {
           Mood?
         </label>
         <select
-          className="border dark:text-white dark:bg-zinc-800 border-gray-300 text-gray-900 w-full font-medium rounded-lg text-sm pl-4 pr-8 py-4 inline-flex items-center"
+          className=" appearance-none border dark:text-white dark:bg-zinc-800 border-gray-300 text-gray-900 w-full font-medium rounded-lg text-sm pl-4 pr-8 py-4 inline-flex items-center"
           defaultValue={moodList[4].text}
           {...register('mood', { required: true })}
         >
@@ -98,7 +98,7 @@ export const Form = () => {
           Social network
         </label>
         <select
-          className="border border-gray-300 dark:text-white dark:bg-zinc-800 text-gray-900 w-full font-medium rounded-lg text-sm px-4 py-4 inline-flex items-center"
+          className="appearance-none border border-gray-300 dark:text-white dark:bg-zinc-800 text-gray-900 w-full font-medium rounded-lg text-sm px-4 py-4 inline-flex items-center"
           defaultValue={socialNetwork[0]}
           {...register('socialNetwork', { required: true })}
         >
