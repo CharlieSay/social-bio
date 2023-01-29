@@ -1,6 +1,7 @@
 import './globals.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AnalyticsWrapper } from './analytics'
 export default function RootLayout({
   children,
 }: {
@@ -57,6 +58,7 @@ export default function RootLayout({
           </Link>
         </section>
       </footer>
+      <AnalyticsWrapper />
     </html>
   )
 }
